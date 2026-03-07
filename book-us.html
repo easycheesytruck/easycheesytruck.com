@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Us | Easy Cheesy Lemon Squeezy</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --yellow: #f4c100;
+      --cream: #f7f5f4;
+      --black: #000;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: var(--cream);
+      color: #111;
+      line-height: 1.5;
+    }
+
+    .brand-font { font-family: "Baloo 2", system-ui, sans-serif; }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.25rem;
+    }
+
+    header {
+      background: var(--black);
+      color: #fff;
+      border-bottom: 3px solid var(--yellow);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .75rem 0;
+    }
+
+    .nav-logo img {
+      height: 52px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      text-transform: uppercase;
+      font-size: .85rem;
+      letter-spacing: .08em;
+    }
+
+    .nav-cta {
+      border: 2px solid var(--yellow);
+      border-radius: 999px;
+      padding: .35rem .9rem;
+      text-transform: uppercase;
+      font-size: .8rem;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    main { padding: 2.5rem 0 3rem; }
+
+    .page-title {
+      font-family: "Baloo 2", system-ui, sans-serif;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      margin-bottom: .5rem;
+    }
+
+    .booking-card {
+      background: #fff;
+      border-radius: 22px;
+      border: 2px solid var(--black);
+      box-shadow: 0 16px 0 rgba(0,0,0,.6);
+      padding: 1.4rem;
+    }
+
+    .booking-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 1rem;
+    }
+
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      gap: .25rem;
+    }
+
+    @media(max-width:650px){
+      .booking-form-grid { grid-template-columns: 1fr; }
+    }
+
+    label { font-weight: 600; font-size: .85rem; }
+    
+    input, textarea, select {
+      border: 1px solid #aaa;
+      border-radius: 8px;
+      padding: .5rem .6rem;
+      font-size: .9rem;
+    }
+
+    textarea { resize: vertical; min-height: 90px; }
+
+    .full-width { grid-column: 1/-1; }
+
+    .btn-primary {
+      border: none;
+      border-radius: 999px;
+      padding: .6rem 1.6rem;
+      font-style: normal;
+      font-size: .85rem;
+      text-transform: uppercase;
+      background: var(--yellow);
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: .8rem;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="nav-logo"><img src="logo.png" alt="Easy Cheesy Lemon Squeezy Logo"></div>
+    <nav class="nav-links">
+      <a href="/index.html#hero" style="color:white;">Home</a>
+      <a href="/index.html#menu" style="color:white;">Menu</a>
+      <a href="/index.html#schedule" style="color:white;">Schedule</a>
+    </nav>
+    <a href="https://instagram.com/easycheesytruck" class="nav-cta">Follow</a>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <h1 class="page-title">Book Easy Cheesy Lemon Squeezy</h1>
+    <p style="margin-bottom:1.5rem;">
+      Submit the details for your event and we’ll confirm availability, minimums, and logistics.
+    </p>
+
+    <!-- 🔥 Hidden reference form (required for Netlify to register the form) -->
+    <form name="booking" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name">
+      <input type="email" name="email">
+    </form>
+
+    <section class="booking-card">
+      <!-- 🔥 REAL LIVE FORM -->
+      <form name="booking"
+            method="POST"
+            data-netlify="true"
+            netlify
+            netlify-honeypot="bot-field">
+
+        <input type="hidden" name="form-name" value="booking" />
+
+        <!-- Honeypot -->
+        <p style="display:none;">
+          <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+        </p>
+
+        <div class="booking-form-grid">
+
+          <div class="form-row">
+            <label>Name</label>
+            <input type="text" name="name" required>
+          </div>
+
+          <div class="form-row">
+            <label>Email</label>
+            <input type="email" name="email" required>
+          </div>
+
+          <div class="form-row">
+            <label>Phone</label>
+            <input type="tel" name="phone" required>
+          </div>
+
+          <div class="form-row">
+            <label>Event Type</label>
+            <select name="eventType" required>
+              <option value="">Select type</option>
+              <option>Corporate lunch</option>
+              <option>Apartment / community event</option>
+              <option>Bar / brewery pop-up</option>
+              <option>Festival / rally</option>
+              <option>Private party</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label>Expected Headcount</label>
+            <input type="number" name="headcount" min="1" required>
+          </div>
+
+          <div class="form-row">
+            <label>Budget Range</label>
+            <select name="budgetRange" required>
+              <option value="">Choose one</option>
+              <option>Under $1,000</option>
+              <option>$1,000 – $2,000</option>
+              <option>$2,000 – $3,500</option>
+              <option>$3,500 – $5,000</option>
+              <option>$5,000+</option>
+            </select>
+          </div>
+
+          <div class="form-row full-width">
+            <label>Date / Time Window</label>
+            <input type="text" name="dateWindow" required>
+          </div>
+
+          <div class="form-row full-width">
+            <label>Venue Name & Address</label>
+            <input type="text" name="venueAddress" required>
+          </div>
+
+          <div class="form-row full-width">
+            <label>Event Details / Notes</label>
+            <textarea name="notes"></textarea>
+          </div>
+
+          <div class="form-row full-width">
+            <label>How did you hear about us?</label>
+            <input type="text" name="referrer">
+          </div>
+
+          <div class="form-row full-width">
+            <button type="submit" class="btn-primary brand-font">Submit Booking Request</button>
+          </div>
+
+        </div>
+      </form>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  © <span id="year"></span> Easy Cheesy Lemon Squeezy
+</footer>
+
+<script>
+  document.getElementById("year").innerText = new Date().getFullYear();
+</script>
+
+</body>
+</html>

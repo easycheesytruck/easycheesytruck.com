@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Easy Cheesy Lemon Squeezy | Coming Soon</title>
+  <meta name="description" content="Easy Cheesy Lemon Squeezy — a Tampa Bay gourmet grilled cheese and fresh lemonade food truck. Launching soon. Follow @easycheesytruck for updates." />
+
+  <!-- Brand-ish font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --yellow: #f4c100;
+      --neon-green: #a7d52f;
+      --sky-blue: #7ac9de;
+      --purple: #7a3f76;
+      --orange: #d36a1b;
+      --cream: #f7f5f4;
+      --black: #000000;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--cream);
+      color: #111;
+      min-height: 100vh;
+      display: flex;
+      align-items: stretch;
+    }
+
+    .brand-font {
+      font-family: "Baloo 2", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0.03em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .shell {
+      position: relative;
+      flex: 1;
+      overflow: hidden;
+      background: var(--black);
+      color: #fff;
+    }
+
+    .bg-pattern {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(167, 213, 47, 0.25), transparent 40%),
+        linear-gradient(-135deg, rgba(122, 201, 222, 0.3), transparent 40%),
+        radial-gradient(circle at 0% 100%, rgba(211, 106, 27, 0.35), transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(122, 63, 118, 0.4), transparent 55%);
+      opacity: 0.9;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .logo-wrap img {
+      height: 70px;
+      width: auto;
+    }
+
+    .tagline {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      text-align: right;
+    }
+
+    main {
+      flex: 1;
+      display: grid;
+      gap: 2rem;
+    }
+
+    @media (min-width: 760px) {
+      main {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+        align-items: center;
+      }
+    }
+
+    .headline-block {
+      max-width: 28rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(244, 193, 0, 0.9);
+      background: rgba(0, 0, 0, 0.55);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 0.9rem;
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--neon-green);
+      box-shadow: 0 0 10px rgba(167, 213, 47, 0.9);
+    }
+
+    h1 {
+      font-family: "Baloo 2", system-ui, sans-serif;
+      font-size: clamp(2.4rem, 6vw, 3.2rem);
+      line-height: 1.02;
+      text-transform: uppercase;
+      text-shadow:
+        -3px 3px 0 var(--purple),
+        3px 3px 0 var(--orange);
+      margin-bottom: 0.6rem;
+    }
+
+    .subline {
+      font-size: 0.98rem;
+      max-width: 24rem;
+      color: #f7f5f4;
+      margin-bottom: 1.4rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.4rem;
+      font-size: 0.78rem;
+    }
+
+    .chip {
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(247, 245, 244, 0.65);
+      background: rgba(0, 0, 0, 0.45);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .btn-primary {
+      border-radius: 999px;
+      padding: 0.65rem 1.5rem;
+      border: none;
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: var(--yellow);
+      color: var(--black);
+      box-shadow: 0 0.7rem 0 rgba(0, 0, 0, 0.6);
+      transform: translateY(0);
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(2px);
+      box-shadow: 0 0.4rem 0 rgba(0, 0, 0, 0.6);
+    }
+
+    .btn-secondary {
+      border-radius: 999px;
+      padding: 0.6rem 1.3rem;
+      border: 2px dashed rgba(247, 245, 244, 0.7);
+      cursor: pointer;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: rgba(0, 0, 0, 0.4);
+      color: #fff;
+    }
+
+    .note {
+      font-size: 0.78rem;
+      color: #e0ddda;
+    }
+
+    .card {
+      background: rgba(247, 245, 244, 0.97);
+      color: #111;
+      border-radius: 22px;
+      border: 2px solid #000;
+      box-shadow: 0 16px 0 rgba(0, 0, 0, 0.8);
+      padding: 1.3rem 1.2rem 1.1rem;
+    }
+
+    .card-header {
+      font-family: "Baloo 2", system-ui, sans-serif;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-body {
+      font-size: 0.9rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .social-list {
+      font-size: 0.88rem;
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .social-list span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: var(--black);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+
+    .card-footer {
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+      color: #444;
+    }
+
+    footer {
+      margin-top: 2.2rem;
+      font-size: 0.78rem;
+      color: #f0eeeb;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    footer a {
+      color: #f0eeeb;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="bg-pattern"></div>
+    <div class="content">
+      <header>
+        <div class="logo-wrap">
+          <!-- Make sure logo.png is in the same folder -->
+          <img src="logo.png" alt="Easy Cheesy Lemon Squeezy Logo">
+        </div>
+        <div class="tagline brand-font">
+          Tampa Bay • Food Truck<br>
+          Gourmet grilled cheese & lemonade
+        </div>
+      </header>
+
+      <main>
+        <!-- Left: Coming soon + CTA -->
+        <section class="headline-block">
+          <div class="pill">
+            <span class="pill-dot"></span>
+            <span>Launching Soon • Tampa Bay</span>
+          </div>
+          <h1 class="brand-font">Coming Soon</h1>
+          <p class="subline">
+            Easy Cheesy Lemon Squeezy is almost ready to roll — a tight, fast menu of gourmet grilled cheese and fresh-squeezed lemonade built for corporate lunches, communities, breweries, festivals, and private events.
+          </p>
+          <div class="chips">
+            <span class="chip">Gourmet grilled cheese</span>
+            <span class="chip">Fresh lemonade</span>
+            <span class="chip">90s pop-art vibes</span>
+          </div>
+          <div class="buttons">
+            <a href="https://instagram.com/easycheesytruck" target="_blank" rel="noopener" class="btn-primary brand-font">
+              Follow @easycheesytruck
+            </a>
+            <a href="/book-us.html" class="btn-secondary">
+              Book us for an event
+            </a>
+          </div>
+          <p class="note">
+            First dates, locations, and full menu drops will hit socials and this site as soon as the truck is on the road.
+          </p>
+        </section>
+
+        <!-- Right: About + socials -->
+        <section class="card">
+          <div class="card-header">About us</div>
+          <div class="card-body">
+            Easy Cheesy Lemon Squeezy is a Tampa Bay food truck created by hospitality pros who wanted to take grilled cheese seriously and ticket times even more seriously. Small menu, big flavor, fast execution — wrapped in a loud, 90s-inspired brand that looks as good as it eats.
+          </div>
+          <div class="card-header" style="margin-top:0.3rem;">Where to find us (online)</div>
+          <div class="social-list">
+            <span>
+              <span class="badge">IG</span>
+              <a href="https://instagram.com/easycheesytruck" target="_blank" rel="noopener">@easycheesytruck</a>
+            </span>
+            <span>
+              <span class="badge">FB</span>
+              <a href="https://facebook.com/easycheesytruck" target="_blank" rel="noopener">facebook.com/easycheesytruck</a>
+            </span>
+            <span>
+              <span class="badge">TT</span>
+              <a href="https://tiktok.com/@easycheesytruck" target="_blank" rel="noopener">@easycheesytruck</a>
+            </span>
+            <span>
+              <span class="badge">@</span>
+              <a href="mailto:info@easycheesytruck.com">info@easycheesytruck.com</a>
+            </span>
+          </div>
+          <div class="card-footer">
+            Want us at your office, brewery, or community once we launch? Use the booking form and we’ll follow up with availability and details.
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <span>© <span id="year"></span> Easy Cheesy Lemon Squeezy • Tampa Bay, Florida</span>
+        <span><a href="/index.html">View full site</a></span>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

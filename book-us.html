@@ -140,9 +140,9 @@
   <div class="container nav">
     <div class="nav-logo"><img src="logo.png" alt="Easy Cheesy Lemon Squeezy Logo"></div>
     <nav class="nav-links">
-      <a href="/index.html#hero" style="color:white;">Home</a>
-      <a href="/index.html#menu" style="color:white;">Menu</a>
-      <a href="/index.html#schedule" style="color:white;">Schedule</a>
+      <a href="index.html#hero" style="color:white;">Home</a>
+      <a href="index.html#menu" style="color:white;">Menu</a>
+      <a href="index.html#schedule" style="color:white;">Schedule</a>
     </nav>
     <a href="https://instagram.com/easycheesytruck" class="nav-cta">Follow</a>
   </div>
@@ -156,26 +156,8 @@
       Submit the details for your event and we’ll confirm availability, minimums, and logistics.
     </p>
 
-    <!-- 🔥 Hidden reference form (required for Netlify to register the form) -->
-    <form name="booking" netlify netlify-honeypot="bot-field" hidden>
-      <input type="text" name="name">
-      <input type="email" name="email">
-    </form>
-
     <section class="booking-card">
-      <!-- 🔥 REAL LIVE FORM -->
-      <form name="booking"
-            method="POST"
-            data-netlify="true"
-            netlify
-            netlify-honeypot="bot-field">
-
-        <input type="hidden" name="form-name" value="booking" />
-
-        <!-- Honeypot -->
-        <p style="display:none;">
-          <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
-        </p>
+      <form action="https://formspree.io/f/xnjgnqyb" method="POST">
 
         <div class="booking-form-grid">
 

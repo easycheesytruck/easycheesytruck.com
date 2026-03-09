@@ -4,246 +4,494 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Book Us | Easy Cheesy Lemon Squeezy</title>
+  <meta name="description" content="Book Easy Cheesy Lemon Squeezy for your corporate lunch, brewery pop-up, festival, or private event in Tampa Bay." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --yellow: #f4c100;
-      --cream: #f7f5f4;
-      --black: #000;
+      --yellow:  #f4c100;
+      --pink:    #e8175d;
+      --teal:    #00c4b4;
+      --purple:  #7a3f76;
+      --orange:  #d36a1b;
+      --cream:   #f7f5f0;
+      --black:   #0d0d0d;
+      --white:   #ffffff;
+
+      --border:    3px solid var(--black);
+      --shadow:    5px 5px 0 var(--black);
+      --shadow-lg: 8px 8px 0 var(--black);
+
+      --font-display: "Bebas Neue", impact, sans-serif;
+      --font-brand:   "Baloo 2", system-ui, sans-serif;
+      --font-body:    "Nunito", system-ui, sans-serif;
+
+      --focus-ring: var(--teal);
     }
 
-    body {
-      margin: 0;
-      font-family: system-ui, sans-serif;
-      background: var(--cream);
-      color: #111;
-      line-height: 1.5;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-body); background: var(--cream); color: var(--black); line-height: 1.5; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    :focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 3px; border-radius: 4px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
     }
 
-    .brand-font { font-family: "Baloo 2", system-ui, sans-serif; }
+    /* ── Nav ────────────────────────────────────────────────── */
+    .site-nav {
+      background: var(--black);
+      border-bottom: var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
 
-    .container {
-      max-width: 900px;
+    .nav-inner {
+      max-width: 1100px;
       margin: 0 auto;
+      padding: 0 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      height: 72px;
+    }
+
+    .nav-logo img { height: 52px; width: auto; }
+
+    .nav-links { display: none; gap: 0.25rem; list-style: none; }
+
+    .nav-links a {
+      font-family: var(--font-brand);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #ccc;
+      padding: 0.4rem 0.65rem;
+      border-radius: 6px;
+      transition: color 0.15s, background 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+    .nav-links a[aria-current="page"] { color: var(--yellow); }
+
+    .nav-cta {
+      font-family: var(--font-brand);
+      font-weight: 700;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: var(--yellow);
+      color: var(--black);
+      border: var(--border);
+      box-shadow: var(--shadow);
+      border-radius: 999px;
+      padding: 0.4rem 1rem;
+      transition: box-shadow 0.12s, transform 0.12s;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .nav-cta:hover { transform: translate(2px, 2px); box-shadow: 3px 3px 0 var(--black); }
+
+    @media (min-width: 641px) {
+      .nav-links { display: flex; }
+      .nav-logo img { height: 56px; }
+    }
+
+    /* ── Page header ─────────────────────────────────────────── */
+    .page-header {
+      background: var(--purple);
+      border-bottom: var(--border);
+      padding: 2.5rem 1.25rem;
+      color: var(--white);
+    }
+
+    @media (min-width: 641px) {
+      .page-header { padding: 3rem 1.5rem; }
+    }
+
+    .page-header-inner { max-width: 1100px; margin: 0 auto; }
+
+    .page-label {
+      font-family: var(--font-brand);
+      font-weight: 800;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--yellow);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 7vw, 3rem);
+      line-height: 1.05;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .page-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 38rem;
+      line-height: 1.65;
+    }
+
+    /* ── Main layout ─────────────────────────────────────────── */
+    .main-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+      display: grid;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    @media (min-width: 641px) {
+      .main-inner { padding: 3rem 1.5rem 4rem; gap: 2rem; }
+    }
+
+    @media (min-width: 860px) {
+      .main-inner { grid-template-columns: 1fr 320px; }
+    }
+
+    /* ── Form card ───────────────────────────────────────────── */
+    .form-card {
+      background: var(--white);
+      border: var(--border);
+      box-shadow: var(--shadow-lg);
+      border-radius: 20px;
+      padding: 1.5rem 1.25rem;
+    }
+
+    @media (min-width: 641px) {
+      .form-card { padding: 2rem 1.75rem; }
+    }
+
+    .form-card-title {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #eee;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 560px) {
+      .form-grid { grid-template-columns: repeat(2, 1fr); gap: 1.1rem; }
+    }
+
+    .full { grid-column: 1 / -1; }
+
+    .form-row { display: flex; flex-direction: column; gap: 0.3rem; }
+
+    label {
+      font-family: var(--font-brand);
+      font-weight: 700;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      color: #333;
+    }
+
+    input, textarea, select {
+      font-family: var(--font-body);
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      padding: 0.6rem 0.75rem;
+      font-size: 1rem;
+      min-height: 52px;
+      transition: border-color 0.15s;
+      background: var(--cream);
+      color: var(--black);
+      width: 100%;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--purple);
+      background: var(--white);
+    }
+
+    input:focus-visible, textarea:focus-visible, select:focus-visible {
+      outline: 3px solid var(--focus-ring);
+      outline-offset: 2px;
+    }
+
+    textarea { resize: vertical; min-height: 110px; }
+
+    .btn-submit {
+      font-family: var(--font-brand);
+      font-weight: 800;
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: var(--yellow);
+      color: var(--black);
+      border: var(--border);
+      box-shadow: var(--shadow);
+      border-radius: 999px;
+      padding: 0.85rem 2rem;
+      cursor: pointer;
+      transition: box-shadow 0.12s, transform 0.12s;
+      min-height: 56px;
+      width: 100%;
+    }
+
+    .btn-submit:hover { transform: translate(2px, 2px); box-shadow: 3px 3px 0 var(--black); }
+
+    /* ── Sidebar ─────────────────────────────────────────────── */
+    .sidebar { display: flex; flex-direction: column; gap: 1rem; }
+
+    @media (min-width: 641px) {
+      .sidebar { gap: 1.25rem; }
+    }
+
+    .info-card {
+      background: var(--white);
+      border: var(--border);
+      box-shadow: var(--shadow);
+      border-radius: 16px;
       padding: 1.25rem;
     }
 
-    header {
-      background: var(--black);
-      color: #fff;
-      border-bottom: 3px solid var(--yellow);
+    @media (min-width: 641px) {
+      .info-card { padding: 1.4rem; }
     }
 
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: .75rem 0;
-    }
-
-    .nav-logo img {
-      height: 52px;
-      width: auto;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1rem;
+    .info-card-title {
+      font-family: var(--font-brand);
+      font-weight: 800;
+      font-size: 0.9rem;
       text-transform: uppercase;
-      font-size: .85rem;
-      letter-spacing: .08em;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
     }
 
-    .nav-cta {
-      border: 2px solid var(--yellow);
-      border-radius: 999px;
-      padding: .35rem .9rem;
-      text-transform: uppercase;
-      font-size: .8rem;
-      color: #fff;
-      text-decoration: none;
-    }
+    .info-card p { font-size: 0.9rem; color: #444; line-height: 1.6; }
 
-    main { padding: 2.5rem 0 3rem; }
+    .event-type-list { list-style: none; display: grid; gap: 0.4rem; margin-top: 0.2rem; }
 
-    .page-title {
-      font-family: "Baloo 2", system-ui, sans-serif;
-      font-size: 1.8rem;
-      text-transform: uppercase;
-      margin-bottom: .5rem;
-    }
-
-    .booking-card {
-      background: #fff;
-      border-radius: 22px;
+    .event-type-list li {
+      font-family: var(--font-brand);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.35rem 0.6rem;
+      background: var(--cream);
       border: 2px solid var(--black);
-      box-shadow: 0 16px 0 rgba(0,0,0,.6);
-      padding: 1.4rem;
+      border-radius: 8px;
     }
 
-    .booking-form-grid {
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      gap: 1rem;
+    .highlight-card {
+      background: var(--yellow);
+      border: var(--border);
+      box-shadow: var(--shadow);
+      border-radius: 16px;
+      padding: 1.25rem;
     }
 
-    .form-row {
+    @media (min-width: 641px) {
+      .highlight-card { padding: 1.4rem; }
+    }
+
+    .highlight-card .info-card-title { color: var(--black); }
+    .highlight-card p { font-size: 0.9rem; color: var(--black); line-height: 1.6; }
+
+    /* ── Footer ─────────────────────────────────────────────── */
+    .site-footer {
+      background: var(--black);
+      color: rgba(255,255,255,0.55);
+      padding: 1.75rem 1.25rem;
+      font-size: 0.82rem;
+      border-top: var(--border);
+    }
+
+    @media (min-width: 641px) {
+      .site-footer { padding: 2rem 1.5rem; }
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: .25rem;
+      gap: 0.4rem;
     }
 
-    @media(max-width:650px){
-      .booking-form-grid { grid-template-columns: 1fr; }
+    @media (min-width: 560px) {
+      .footer-inner { flex-direction: row; justify-content: space-between; flex-wrap: wrap; }
     }
 
-    label { font-weight: 600; font-size: .85rem; }
-    
-    input, textarea, select {
-      border: 1px solid #aaa;
-      border-radius: 8px;
-      padding: .5rem .6rem;
-      font-size: .9rem;
-    }
-
-    textarea { resize: vertical; min-height: 90px; }
-
-    .full-width { grid-column: 1/-1; }
-
-    .btn-primary {
-      border: none;
-      border-radius: 999px;
-      padding: .6rem 1.6rem;
-      font-style: normal;
-      font-size: .85rem;
-      text-transform: uppercase;
-      background: var(--yellow);
-      cursor: pointer;
-      font-weight: 700;
-    }
-
-    footer {
-      margin-top: 2rem;
-      text-align: center;
-      font-size: .8rem;
-      color: #444;
-    }
+    .site-footer a { color: rgba(255,255,255,0.7); text-decoration: underline; text-underline-offset: 2px; }
+    .site-footer a:hover { color: var(--white); }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="container nav">
-    <div class="nav-logo"><img src="logo.png" alt="Easy Cheesy Lemon Squeezy Logo"></div>
-    <nav class="nav-links">
-      <a href="index.html#hero" style="color:white;">Home</a>
-      <a href="index.html#menu" style="color:white;">Menu</a>
-      <a href="index.html#schedule" style="color:white;">Schedule</a>
-    </nav>
-    <a href="https://instagram.com/easycheesytruck" class="nav-cta">Follow</a>
+  <!-- ── Nav ─────────────────────────────────────────────── -->
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Easy Cheesy Lemon Squeezy — home">
+        <img src="toast-logo.png" alt="Easy Cheesy Lemon Squeezy Logo">
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#socials">Find Us</a></li>
+        <li><a href="book-us.html" aria-current="page">Book Us</a></li>
+      </ul>
+      <a href="https://instagram.com/easycheesytruck" target="_blank" rel="noopener noreferrer" class="nav-cta" aria-label="Follow us on Instagram (opens in new tab)">
+        Follow
+      </a>
+    </div>
+  </nav>
+
+  <!-- ── Page header ──────────────────────────────────────── -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="page-label">Private Events &bull; Corporate &bull; Festivals</div>
+      <h1 class="page-title">Book Easy Cheesy<br>Lemon Squeezy</h1>
+      <p class="page-sub">Tell us about your event and we'll get back to you with availability, logistics, and minimums.</p>
+    </div>
   </div>
-</header>
 
-<main>
-  <div class="container">
+  <!-- ── Main ─────────────────────────────────────────────── -->
+  <main>
+    <div class="main-inner">
 
-    <h1 class="page-title">Book Easy Cheesy Lemon Squeezy</h1>
-    <p style="margin-bottom:1.5rem;">
-      Submit the details for your event and we’ll confirm availability, minimums, and logistics.
-    </p>
+      <div class="form-card">
+        <div class="form-card-title">Booking Request</div>
+        <form action="https://formspree.io/f/xnjgnqyb" method="POST" novalidate>
+          <div class="form-grid">
 
-    <section class="booking-card">
-      <form action="https://formspree.io/f/xnjgnqyb" method="POST">
+            <div class="form-row">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" autocomplete="name" required>
+            </div>
 
-        <div class="booking-form-grid">
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
 
-          <div class="form-row">
-            <label>Name</label>
-            <input type="text" name="name" required>
+            <div class="form-row">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+            </div>
+
+            <div class="form-row">
+              <label for="eventType">Event Type</label>
+              <select id="eventType" name="eventType" required>
+                <option value="">Select type</option>
+                <option>Corporate lunch</option>
+                <option>Apartment / community event</option>
+                <option>Bar / brewery pop-up</option>
+                <option>Festival / rally</option>
+                <option>Private party</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="headcount">Expected Headcount</label>
+              <input type="number" id="headcount" name="headcount" min="1" required>
+            </div>
+
+            <div class="form-row">
+              <label for="budgetRange">Budget Range</label>
+              <select id="budgetRange" name="budgetRange" required>
+                <option value="">Choose one</option>
+                <option>Under $1,000</option>
+                <option>$1,000 – $2,000</option>
+                <option>$2,000 – $3,500</option>
+                <option>$3,500 – $5,000</option>
+                <option>$5,000+</option>
+              </select>
+            </div>
+
+            <div class="form-row full">
+              <label for="dateWindow">Date / Time Window</label>
+              <input type="text" id="dateWindow" name="dateWindow" placeholder="e.g. March 15, 11am – 2pm" required>
+            </div>
+
+            <div class="form-row full">
+              <label for="venueAddress">Venue Name &amp; Address</label>
+              <input type="text" id="venueAddress" name="venueAddress" autocomplete="street-address" required>
+            </div>
+
+            <div class="form-row full">
+              <label for="notes">Event Details / Notes</label>
+              <textarea id="notes" name="notes" placeholder="Tell us anything we should know about your event..."></textarea>
+            </div>
+
+            <div class="form-row full">
+              <label for="referrer">How did you hear about us?</label>
+              <input type="text" id="referrer" name="referrer">
+            </div>
+
+            <div class="form-row full">
+              <button type="submit" class="btn-submit">Submit Booking Request</button>
+            </div>
+
           </div>
+        </form>
+      </div>
 
-          <div class="form-row">
-            <label>Email</label>
-            <input type="email" name="email" required>
-          </div>
+      <aside class="sidebar" aria-label="Booking information">
 
-          <div class="form-row">
-            <label>Phone</label>
-            <input type="tel" name="phone" required>
-          </div>
-
-          <div class="form-row">
-            <label>Event Type</label>
-            <select name="eventType" required>
-              <option value="">Select type</option>
-              <option>Corporate lunch</option>
-              <option>Apartment / community event</option>
-              <option>Bar / brewery pop-up</option>
-              <option>Festival / rally</option>
-              <option>Private party</option>
-              <option>Other</option>
-            </select>
-          </div>
-
-          <div class="form-row">
-            <label>Expected Headcount</label>
-            <input type="number" name="headcount" min="1" required>
-          </div>
-
-          <div class="form-row">
-            <label>Budget Range</label>
-            <select name="budgetRange" required>
-              <option value="">Choose one</option>
-              <option>Under $1,000</option>
-              <option>$1,000 – $2,000</option>
-              <option>$2,000 – $3,500</option>
-              <option>$3,500 – $5,000</option>
-              <option>$5,000+</option>
-            </select>
-          </div>
-
-          <div class="form-row full-width">
-            <label>Date / Time Window</label>
-            <input type="text" name="dateWindow" required>
-          </div>
-
-          <div class="form-row full-width">
-            <label>Venue Name & Address</label>
-            <input type="text" name="venueAddress" required>
-          </div>
-
-          <div class="form-row full-width">
-            <label>Event Details / Notes</label>
-            <textarea name="notes"></textarea>
-          </div>
-
-          <div class="form-row full-width">
-            <label>How did you hear about us?</label>
-            <input type="text" name="referrer">
-          </div>
-
-          <div class="form-row full-width">
-            <button type="submit" class="btn-primary brand-font">Submit Booking Request</button>
-          </div>
-
+        <div class="highlight-card">
+          <div class="info-card-title">What happens next?</div>
+          <p>We'll review your request and follow up within 1–2 business days with availability, minimums, and next steps.</p>
         </div>
-      </form>
-    </section>
 
-  </div>
-</main>
+        <div class="info-card">
+          <div class="info-card-title">We do all kinds of events</div>
+          <ul class="event-type-list">
+            <li>Corporate lunches</li>
+            <li>Apartment &amp; community pop-ups</li>
+            <li>Bar &amp; brewery events</li>
+            <li>Festivals &amp; rallies</li>
+            <li>Private parties</li>
+          </ul>
+        </div>
 
-<footer>
-  © <span id="year"></span> Easy Cheesy Lemon Squeezy
-</footer>
+        <div class="info-card">
+          <div class="info-card-title">Questions?</div>
+          <p>Reach us at <a href="mailto:info@easycheesytruck.com" style="font-weight:700;text-decoration:underline;">info@easycheesytruck.com</a> or on Instagram at <a href="https://instagram.com/easycheesytruck" target="_blank" rel="noopener noreferrer" style="font-weight:700;text-decoration:underline;">@easycheesytruck</a>.</p>
+        </div>
 
-<script>
-  document.getElementById("year").innerText = new Date().getFullYear();
-</script>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- ── Footer ───────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span id="year"></span> Easy Cheesy Lemon Squeezy &bull; Tampa Bay, Florida</span>
+      <span><a href="index.html">Back to home</a></span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>

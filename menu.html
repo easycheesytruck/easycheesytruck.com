@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu | Easy Cheesy Lemon Squeezy</title>
+  <meta name="description" content="The Easy Cheesy Lemon Squeezy menu - gourmet grilled cheese sandwiches and fresh-squeezed lemonade. Tampa Bay food truck." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Tokens ─────────────────────────────────────────────── */
+    :root {
+      --yellow:     #f4c100;
+      --yellow-dk:  #c99d00;
+      --pink:       #e8175d;
+      --pink-dk:    #c0104a;
+      --teal:       #00c4b4;
+      --teal-dk:    #009e91;
+      --purple:     #7a3f76;
+      --orange:     #d36a1b;
+      --cream:      #f7f5f0;
+      --black:      #0d0d0d;
+      --white:      #ffffff;
+
+      --border:     3px solid var(--black);
+      --shadow:     5px 5px 0 var(--black);
+      --shadow-lg:  8px 8px 0 var(--black);
+
+      --font-display: "Bebas Neue", impact, sans-serif;
+      --font-brand:   "Baloo 2", system-ui, sans-serif;
+      --font-body:    "Nunito", system-ui, sans-serif;
+
+      --focus-ring: var(--teal);
+    }
+
+    /* ── Reset ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--black);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    :focus-visible {
+      outline: 3px solid var(--focus-ring);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+
+    /* ── Nav ────────────────────────────────────────────────── */
+    .site-nav {
+      background: var(--black);
+      color: var(--white);
+      border-bottom: var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      height: 72px;
+    }
+
+    .nav-logo img { height: 52px; width: auto; }
+
+    .nav-links { display: none; gap: 0.25rem; list-style: none; }
+
+    .nav-links a {
+      font-family: var(--font-brand);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #ccc;
+      padding: 0.4rem 0.65rem;
+      border-radius: 6px;
+      transition: color 0.15s, background 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+    .nav-links a[aria-current="page"] { color: var(--yellow); }
+
+    .nav-cta {
+      font-family: var(--font-brand);
+      font-weight: 700;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: var(--yellow);
+      color: var(--black);
+      border: var(--border);
+      box-shadow: var(--shadow);
+      border-radius: 999px;
+      padding: 0.4rem 1rem;
+      transition: box-shadow 0.12s, transform 0.12s;
+      white-space: nowrap;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .nav-cta:hover { transform: translate(2px, 2px); box-shadow: 3px 3px 0 var(--black); }
+
+    @media (min-width: 641px) {
+      .nav-links { display: flex; }
+      .nav-logo img { height: 56px; }
+    }
+
+    /* ── Page header ─────────────────────────────────────────── */
+    .page-header {
+      background: var(--black);
+      border-bottom: var(--border);
+      padding: 2.5rem 1.25rem;
+    }
+
+    @media (min-width: 641px) {
+      .page-header { padding: 3rem 1.5rem; }
+    }
+
+    .page-header-inner { max-width: 1100px; margin: 0 auto; }
+
+    .page-label {
+      font-family: var(--font-brand);
+      font-weight: 800;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--yellow);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 9vw, 4rem);
+      line-height: 1.0;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+    }
+
+    .page-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 36rem;
+      line-height: 1.65;
+    }
+
+    /* ── Seasonal feature ────────────────────────────────────── */
+    .seasonal-section {
+      background: var(--yellow);
+      border-bottom: var(--border);
+      padding: 3rem 1.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .seasonal-section::before {
+      content: "SEASONAL SANDWICH";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%) rotate(-30deg);
+      transform-origin: center center;
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 9vw, 7rem);
+      letter-spacing: 0.08em;
+      color: rgba(13,13,13,0.08);
+      pointer-events: none;
+      z-index: 0;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 759px) {
+      .seasonal-section::before { display: none; }
+    }
+
+    @media (min-width: 641px) {
+      .seasonal-section { padding: 4rem 1.5rem; }
+    }
+
+    .seasonal-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      gap: 2rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (min-width: 760px) {
+      .seasonal-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      }
+    }
+
+    .seasonal-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--black);
+      color: var(--yellow);
+      border: 2px solid var(--black);
+      border-radius: 999px;
+      padding: 0.3rem 1rem;
+      font-family: var(--font-brand);
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+    }
+
+    .seasonal-eyebrow {
+      font-family: var(--font-brand);
+      font-weight: 800;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--black);
+      opacity: 0.6;
+      margin-bottom: 0.4rem;
+    }
+
+    .seasonal-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 8vw, 3.5rem);
+      line-height: 1.0;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 0.35rem;
+    }
+
+    .seasonal-subtitle {
+      font-family: var(--font-brand);
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--black);
+      opacity: 0.65;
+      margin-bottom: 1rem;
+    }
+
+    .seasonal-desc {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: rgba(13,13,13,0.75);
+      max-width: 36rem;
+    }
+
+    /* ── Placeholder image ───────────────────────────────────── */
+    .img-placeholder {
+      background: var(--yellow);
+      border: var(--border);
+      box-shadow: var(--shadow-lg);
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      width: 100%;
+      position: relative;
+    }
+
+    .img-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .img-placeholder--black {
+      background: var(--black);
+      border-color: var(--yellow);
+      box-shadow: 8px 8px 0 var(--yellow);
+    }
+
+    .img-placeholder--pink {
+      background: var(--pink);
+    }
+
+    .img-placeholder--teal {
+      background: var(--teal);
+    }
+
+    .img-placeholder--cream {
+      background: var(--cream);
+      border: var(--border);
+    }
+
+    /* ── Menu section ────────────────────────────────────────── */
+    .menu-section {
+      background: var(--cream);
+    }
+
+    /* ── Menu item ───────────────────────────────────────────── */
+    .menu-item {
+      border-bottom: var(--border);
+      padding: 3rem 1.25rem;
+    }
+
+    @media (min-width: 641px) {
+      .menu-item { padding: 4rem 1.5rem; }
+    }
+
+    .menu-item:nth-child(even) {
+      background: var(--white);
+    }
+
+    .menu-item-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    @media (min-width: 760px) {
+      .menu-item-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 3.5rem;
+      }
+      .menu-item:nth-child(odd) .menu-item-inner {
+        direction: rtl;
+      }
+      .menu-item:nth-child(odd) .menu-item-inner > * {
+        direction: ltr;
+      }
+    }
+
+    .menu-item-number {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 12vw, 6rem);
+      line-height: 1;
+      color: rgba(13,13,13,0.08);
+      margin-bottom: -0.5rem;
+    }
+
+    .menu-item-name {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 7vw, 3rem);
+      line-height: 1.0;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .menu-item-subtitle {
+      font-family: var(--font-brand);
+      font-weight: 700;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--orange);
+      margin-bottom: 1rem;
+    }
+
+    .menu-item-desc {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: #3a3a3a;
+      max-width: 34rem;
+    }
+
+    /* ── Lemonade item ───────────────────────────────────────── */
+    .menu-item--lemonade {
+      background: var(--yellow) !important;
+    }
+
+    .menu-item--lemonade .menu-item-number { color: rgba(13,13,13,0.12); }
+    .menu-item--lemonade .menu-item-subtitle { color: var(--black); }
+    .menu-item--lemonade .menu-item-desc { color: var(--black); }
+
+    /* ── Menu footer notes ───────────────────────────────────── */
+    .menu-notes {
+      background: var(--black);
+      border-bottom: var(--border);
+      padding: 3rem 1.25rem;
+      color: var(--white);
+    }
+
+    @media (min-width: 641px) {
+      .menu-notes { padding: 4rem 1.5rem; }
+    }
+
+    .menu-notes-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 641px) {
+      .menu-notes-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+
+    .note-card {
+      background: rgba(255,255,255,0.06);
+      border: 2px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+
+    .note-card-title {
+      font-family: var(--font-brand);
+      font-weight: 800;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--yellow);
+      margin-bottom: 0.5rem;
+    }
+
+    .note-card p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.65;
+    }
+
+    /* ── Booking strip ───────────────────────────────────────── */
+    .booking-strip {
+      background: var(--yellow);
+      border-bottom: var(--border);
+      padding: 2.5rem 1.25rem;
+    }
+
+    @media (min-width: 641px) {
+      .booking-strip { padding: 3.5rem 1.5rem; }
+    }
+
+    .booking-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 641px) {
+      .booking-inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+    }
+
+    .booking-label {
+      font-family: var(--font-brand);
+      font-weight: 800;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--orange);
+      margin-bottom: 0.4rem;
+    }
+
+    .booking-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .btn-dark {
+      font-family: var(--font-brand);
+      font-weight: 800;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: var(--black);
+      color: var(--yellow);
+      border: var(--border);
+      box-shadow: var(--shadow-lg);
+      border-radius: 999px;
+      padding: 0.8rem 2rem;
+      cursor: pointer;
+      transition: box-shadow 0.12s, transform 0.12s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      white-space: nowrap;
+      align-self: flex-start;
+    }
+
+    @media (min-width: 641px) { .btn-dark { align-self: auto; } }
+    .btn-dark:hover { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--black); }
+
+    /* ── Footer ─────────────────────────────────────────────── */
+    .site-footer {
+      background: var(--black);
+      color: rgba(255,255,255,0.55);
+      padding: 1.75rem 1.25rem;
+      font-size: 0.82rem;
+    }
+
+    @media (min-width: 641px) {
+      .site-footer { padding: 2rem 1.5rem; }
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    @media (min-width: 560px) {
+      .footer-inner { flex-direction: row; justify-content: space-between; flex-wrap: wrap; }
+    }
+
+    .site-footer a { color: rgba(255,255,255,0.7); text-decoration: underline; text-underline-offset: 2px; }
+    .site-footer a:hover { color: var(--white); }
+  </style>
+</head>
+<body>
+
+  <!-- ── Nav ─────────────────────────────────────────────── -->
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Easy Cheesy Lemon Squeezy - home">
+        <img src="assets/logo/toast-logo.png" alt="Easy Cheesy Lemon Squeezy Logo">
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="menu.html" aria-current="page">Menu</a></li>
+        <li><a href="index.html#socials">Find Us</a></li>
+        <li><a href="book-us.html">Book Us</a></li>
+      </ul>
+      <a href="https://instagram.com/easycheesytruck" target="_blank" rel="noopener noreferrer" class="nav-cta" aria-label="Follow us on Instagram (opens in new tab)">
+        Follow
+      </a>
+    </div>
+  </nav>
+
+  <!-- ── Page header ──────────────────────────────────────── -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="page-label">Easy Cheesy Lemon Squeezy</div>
+      <h1 class="page-title">The Menu.</h1>
+      <p class="page-sub">A tight menu, done right. Gourmet grilled cheese and fresh-squeezed lemonade - built for people who take their lunch seriously.</p>
+    </div>
+  </div>
+
+  <!-- ── Seasonal feature ─────────────────────────────────── -->
+  <section class="seasonal-section" aria-labelledby="seasonal-name" id="seasonal">
+    <div class="seasonal-inner">
+      <div class="seasonal-text">
+        <div class="seasonal-eyebrow">On the truck right now</div>
+        <div class="seasonal-badge">Seasonal &bull; Rotates Monthly</div>
+        <div class="seasonal-name" id="seasonal-name">Loading&hellip;</div>
+        <div class="seasonal-subtitle" id="seasonal-subtitle"></div>
+        <p class="seasonal-desc" id="seasonal-desc"></p>
+      </div>
+      <div class="img-placeholder img-placeholder--black" aria-hidden="true" style="box-shadow: var(--shadow-lg);">
+        <img src="assets/logo/toast-logo.png" alt="">
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Menu ─────────────────────────────────────────────── -->
+  <main class="menu-section" aria-label="Menu">
+
+    <!-- Big Ray's Original -->
+    <article class="menu-item" aria-labelledby="item-1-name">
+      <div class="menu-item-inner">
+        <div class="menu-item-text">
+          <div class="menu-item-number" aria-hidden="true">01</div>
+          <h2 class="menu-item-name" id="item-1-name">Big Ray's Original</h2>
+          <div class="menu-item-subtitle">The Classic</div>
+          <p class="menu-item-desc">Ray's kid asked him once why he always made the same sandwich. Ray didn't answer. He just slid the plate across the counter. Cheddar, always seasoned tomato, crisp bacon, real butter, sourdough. Kid hasn't asked since.</p>
+        </div>
+        <div class="img-placeholder" aria-hidden="true">
+          <img src="assets/logo/toast-logo.png" alt="">
+        </div>
+      </div>
+    </article>
+
+    <!-- Cheese Louise -->
+    <article class="menu-item" aria-labelledby="item-2-name">
+      <div class="menu-item-inner">
+        <div class="menu-item-text">
+          <div class="menu-item-number" aria-hidden="true">02</div>
+          <h2 class="menu-item-name" id="item-2-name">Cheese Louise</h2>
+          <div class="menu-item-subtitle">The Triple Threat</div>
+          <p class="menu-item-desc">Louise showed up to the block party with three cheeses and a crust so golden people thought she bought it somewhere. She didn't. Cheddar, jack, and mozz pressed hard enough to get that crispy golden shell on the outside. Louise doesn't play.</p>
+        </div>
+        <div class="img-placeholder img-placeholder--pink" aria-hidden="true">
+          <img src="assets/logo/toast-logo.png" alt="">
+        </div>
+      </div>
+    </article>
+
+    <!-- Sweet Cheezus -->
+    <article class="menu-item" aria-labelledby="item-3-name">
+      <div class="menu-item-inner">
+        <div class="menu-item-text">
+          <div class="menu-item-number" aria-hidden="true">03</div>
+          <h2 class="menu-item-name" id="item-3-name">Sweet Cheezus</h2>
+          <div class="menu-item-subtitle">The One That Got Me</div>
+          <p class="menu-item-desc">Ray swore up and down he wasn't eating anything with brie on it. Then somebody put honey, apple slices, and walnuts on sourdough next to it and pressed the whole thing. Ray had two. Ray doesn't talk about it. Ray's wife does.</p>
+        </div>
+        <div class="img-placeholder img-placeholder--teal" aria-hidden="true">
+          <img src="assets/logo/toast-logo.png" alt="">
+        </div>
+      </div>
+    </article>
+
+    <!-- Fire Squeezy -->
+    <article class="menu-item" aria-labelledby="item-4-name">
+      <div class="menu-item-inner">
+        <div class="menu-item-text">
+          <div class="menu-item-number" aria-hidden="true">04</div>
+          <h2 class="menu-item-name" id="item-4-name">Fire Squeezy</h2>
+          <div class="menu-item-subtitle">The Hot One</div>
+          <p class="menu-item-desc">Pete brought this to Ray's Super Bowl party in '97. Pepper jack, jalapeño, mozzarella, and a pepper chutney that made the whole room go quiet. Nobody touched it. Ray ate four. Pete still brings it up. Ray still doesn't care.</p>
+        </div>
+        <div class="img-placeholder img-placeholder--cream" aria-hidden="true">
+          <img src="assets/logo/toast-logo.png" alt="">
+        </div>
+      </div>
+    </article>
+
+    <!-- Lemonade -->
+    <article class="menu-item menu-item--lemonade" aria-labelledby="item-5-name">
+      <div class="menu-item-inner">
+        <div class="menu-item-text">
+          <div class="menu-item-number" aria-hidden="true">05</div>
+          <h2 class="menu-item-name" id="item-5-name">Fresh-Squeezed Lemonade</h2>
+          <div class="menu-item-subtitle">16oz</div>
+          <p class="menu-item-desc">Ray's son counted the lemons once. Ray told him to stop counting and start squeezing. That's the whole story. Real lemons, real sugar, ice cold.</p>
+        </div>
+        <div class="img-placeholder img-placeholder--black" aria-hidden="true">
+          <img src="assets/logo/toast-logo.png" alt="">
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- ── Notes ─────────────────────────────────────────────── -->
+  <section class="menu-notes" aria-label="Menu notes">
+    <div class="menu-notes-inner">
+
+      <div class="note-card">
+        <div class="note-card-title">Make it a combo</div>
+        <p>Add a fresh-squeezed lemonade to any sandwich. Ask us how.</p>
+      </div>
+
+      <div class="note-card">
+        <div class="note-card-title">Add to any sandwich</div>
+        <p>Always Seasoned Tomato &bull; Crisp Bacon</p>
+      </div>
+
+      <div class="note-card">
+        <div class="note-card-title">Dietary options</div>
+        <p>Any sandwich can be made gluten-free or vegan. Just ask - we'll make it work.</p>
+      </div>
+
+      <div class="note-card">
+        <div class="note-card-title">Buy a Cheese, Leave a Cheese</div>
+        <p>You buy an extra sandwich, somebody who needs it gets to eat. No forms. No questions. Just walk up and say the word.<br><br>Ray's been feeding people his whole life - this is just how we do it.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Booking strip ──────────────────────────────────────── -->
+  <section class="booking-strip" aria-labelledby="booking-title">
+    <div class="booking-inner">
+      <div>
+        <div class="booking-label">Private Events &bull; Corporate &bull; Festivals</div>
+        <div class="booking-title" id="booking-title">Want us at your event?</div>
+      </div>
+      <a href="book-us.html" class="btn-dark">Submit a Booking Request</a>
+    </div>
+  </section>
+
+  <!-- ── Footer ───────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span id="year"></span> Easy Cheesy Lemon Squeezy &bull; Tampa Bay, Florida</span>
+      <span><a href="mailto:info@easycheesytruck.com">info@easycheesytruck.com</a></span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function parseCSV(text) {
+      const lines = text.trim().split("\n");
+      const headers = lines[0].split(",").map(h => h.trim());
+      return lines.slice(1).map(line => {
+        const fields = [];
+        let current = "";
+        let inQuotes = false;
+        for (let i = 0; i < line.length; i++) {
+          if (line[i] === '"') {
+            inQuotes = !inQuotes;
+          } else if (line[i] === "," && !inQuotes) {
+            fields.push(current.trim());
+            current = "";
+          } else {
+            current += line[i];
+          }
+        }
+        fields.push(current.trim());
+        return Object.fromEntries(headers.map((h, i) => [h, fields[i] || ""]));
+      });
+    }
+
+    function renderSeasonal(item) {
+      document.getElementById("seasonal-name").textContent = item.name;
+      document.getElementById("seasonal-subtitle").textContent = item.subtitle;
+      document.getElementById("seasonal-desc").textContent = item.description;
+    }
+
+    function loadSeasonal() {
+      const months = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"];
+      const month = months[new Date().getMonth()];
+      Promise.all([
+        fetch("seasonal.csv").then(r => r.text()),
+        fetch("seasonal_items.csv").then(r => r.text())
+      ])
+      .then(([scheduleText, itemsText]) => {
+        const schedule = parseCSV(scheduleText);
+        const items = parseCSV(itemsText);
+        const row = schedule.find(r => r.month === month);
+        if (row) {
+          const item = items.find(i => i.item_id === row.item_id);
+          if (item) renderSeasonal(item);
+        }
+      })
+      .catch(() => {
+        // Fallback for local file:// viewing
+        renderSeasonal({
+          name: "Ciao Bella",
+          subtitle: "What's Good Right Now",
+          description: "Ray's neighbor Mrs. Deluca made something like this every summer. Never gave out the recipe. Ray watched through the fence long enough to figure it out. Fresh mozz, tomato, basil, a balsamic glaze that made the whole thing sing, sourdough. Mrs. Deluca would probably be mad. Ray thinks she'd be a little proud too."
+        });
+      });
+    }
+
+    loadSeasonal();
+  </script>
+
+</body>
+</html>

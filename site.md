@@ -74,12 +74,14 @@ Uses Playwright (Node.js) to load `https://easycheesytruck.com/book-us.html` in 
 
 **Note:** This sends a real Formspree submission. Chris will receive the email — it can be ignored/deleted.
 
-**Dependencies:** Node.js + Playwright installed in `/tmp`. If Playwright is missing, run:
+**Note on `referrer` field:** It is a plain text input, not a `<select>` — use `fill`, not `selectOption`.
+
+**Dependencies:** Node.js + Playwright. If Playwright is missing, run:
 ```
-cd /tmp && npm init -y && npm install playwright && npx playwright install chromium
+mkdir -p ~/playwright-test && cd ~/playwright-test && npm init -y && npm install playwright && npx playwright install chromium
 ```
 
-**Last passing:** 2026-03-11
+**Last passing:** 2026-03-14
 
 ## History
 

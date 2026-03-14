@@ -79,7 +79,7 @@ Uses Playwright (Node.js) to load `https://easycheesytruck.com/book-us.html` in 
 cd /tmp && npm init -y && npm install playwright && npx playwright install chromium
 ```
 
-**Last passing:** 2026-03-09
+**Last passing:** 2026-03-11
 
 ## History
 

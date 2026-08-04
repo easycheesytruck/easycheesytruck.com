@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Today's Menu — Easy Cheesy Lemon Squeezy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow:     #f4c100;
+    --pink:       #e8175d;
+    --teal:       #00c4b4;
+    --cream:      #f7f5f0;
+    --black:      #0d0d0d;
+    --white:      #ffffff;
+    --border:     3px solid var(--black);
+    --shadow:     5px 5px 0 var(--black);
+    --font-display: "Bebas Neue", impact, sans-serif;
+    --font-brand:   "Baloo 2", system-ui, sans-serif;
+    --font-body:    "Nunito", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--black);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    background: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 1rem 1rem 0.75rem;
+  }
+  header h1 {
+    font-family: var(--font-brand);
+    font-weight: 800;
+    font-size: clamp(1.4rem, 5vw, 2rem);
+    margin: 0 0 0.5rem;
+  }
+  .fallback {
+    display: inline-block;
+    font-family: var(--font-brand);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--black);
+    background: var(--yellow);
+    border: var(--border);
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+    padding: 0.6rem 1.4rem;
+    text-decoration: none;
+    margin-bottom: 0.25rem;
+  }
+  .fallback:active { box-shadow: none; transform: translate(3px, 3px); }
+  main {
+    flex: 1;
+    display: flex;
+  }
+  .pdf-frame {
+    flex: 1;
+    border: none;
+    width: 100%;
+    min-height: 100vh;
+  }
+  noscript p, .no-embed p {
+    text-align: center;
+    font-family: var(--font-body);
+    padding: 2rem 1rem;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Today's Menu</h1>
+    <a class="fallback" href="today.pdf" download>Download / Open PDF</a>
+  </header>
+  <main>
+    <iframe class="pdf-frame" src="today.pdf" title="Today's Menu PDF"></iframe>
+  </main>
+</body>
+</html>
